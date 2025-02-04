@@ -112,24 +112,24 @@ const NotecardList = () => {
               />
             </div>
           </div>
-          <div className="flex gap-2 flex-wrap">
+          <div className="flex gap-2">
             <button
               onClick={() => handleSort('title')}
-              className="flex items-center gap-1 px-4 py-2 bg-gray-400 rounded hover:bg-purple-200"
+              className="flex items-center gap-1 px-4 py-2 dark:bg-gray-500 rounded hover:bg-purple-300"
             >
               <ArrowUpDown size={16} />
               Title
             </button>
             <button
               onClick={() => handleSort('category')}
-              className="flex items-center gap-1 px-4 py-2 bg-gray-400 rounded hover:bg-red-200"
+              className="flex items-center gap-1 px-4 py-2 dark:bg-gray-500 rounded hover:bg-purple-300"
             >
               <ArrowUpDown size={16} />
               Category
             </button>
             <button
               onClick={() => handleSort('id')}
-              className="flex items-center gap-1 px-4 py-2 bg-gray-400 rounded hover:bg-yellow-200"
+              className="flex items-center gap-1 px-4 py-2 dark:bg-gray-500 rounded hover:bg-purple-300"
             >
               <ArrowUpDown size={16} />
               Date
@@ -137,22 +137,25 @@ const NotecardList = () => {
           </div>
         </div>
 
-        {/* Category Filters and Add Button */}
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        {/* Notecard Categories & Add Button */}
+        {/* <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4"> */}
+        {/* if categories.length is one -> empty bc starts w/ 'all' 
+         don't want to show all when empty*/}
+
           <div className="flex gap-2 flex-wrap">
-            {categories.map(category => (
+            {categories.length === 1 ? (<p></p>) : (categories.map(category => (
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
                 className={`px-4 py-2 rounded-full ${
                   selectedCategory === category
                     ? 'bg-blue-500 text-white'
-                    : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                    : 'bg-blue-100 text-gray-700 hover:bg-gray-300'
                 }`}
               >
                 {category}
               </button>
-            ))}
+            )))}
           </div>
           {!isAdding && !editingCard && (
             <button
@@ -164,7 +167,7 @@ const NotecardList = () => {
             </button>
           )}
         </div>
-      </div>
+      {/* </div> */}
 
       {/* Form Section */}
       {(isAdding || editingCard) && (
