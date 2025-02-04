@@ -30,15 +30,15 @@ const NewNoteCard = ({ card, onClick, onDelete, isExpanded }) => {
                 className="flex items-center gap-1 px-2 py-1 w-fit rounded justify-start" 
                 style={{ backgroundColor: categoryColor }}
               >
-                <Tag size={16} />
-                <span>{card.category}</span>
+                <Tag size={16} className="dark:text-stone-500" />
+                <span className="dark:text-stone-500">{card.category}</span>
               </div>)
               : (
                 <div 
                 className="flex items-center gap-1 px-2 py-1 w-8 rounded justify-start" 
                 style={{ backgroundColor: categoryColor }}
               >
-                <Tag size={16} />
+                <Tag size={16} className="dark:text-stone-500" />
               </div>
               )}
 
@@ -64,7 +64,7 @@ const NewNoteCard = ({ card, onClick, onDelete, isExpanded }) => {
             ${isExpanded ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
             
             <CardContent>
-              <p className="text-lg dark:text-gray-200 text-stone-600">{card.description}</p>
+              <p className="text-lg dark:text-gray-200 text-stone-800">{card.description}</p>
                 
               <p className="text-xs dark:text-gray-400 text-stone-500 mt-2">
                 Created: {new Date(card.id).toLocaleDateString()}

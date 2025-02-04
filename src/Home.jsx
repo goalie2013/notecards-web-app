@@ -3,8 +3,9 @@ import { useState, useEffect } from 'react';
 import { Card, CardHeader, CardTitle, CardContent } from './components/ui/card';
 import { Tag, Edit, Trash, Plus, Search, ArrowUpDown } from 'lucide-react';
 import NoteCardForm from './CardForm';
-import NoteCard from './NoteCard';
+//import NoteCard from './NoteCard';
 import NewNoteCard from './NewNoteCard';
+import NewCardForm from './NewCardForm';
 
 
 // Enhanced NotecardList component
@@ -177,14 +178,23 @@ const NotecardList = () => {
               <CardTitle>{editingCard ? 'Edit Card' : 'Add New Card'}</CardTitle>
             </CardHeader>
             <CardContent>
-              <NoteCardForm
+              {/* <NoteCardForm
                 card={editingCard}
                 onSave={handleSave}
                 onCancel={() => {
                   setIsAdding(false);
                   setEditingCard(null);
                 }}
-              />
+              /> */}
+              <NewCardForm
+              card={editingCard}
+              onSave={handleSave}
+              onCancel={() => {
+                setIsAdding(false);
+                setEditingCard(null);
+              }}
+              existingCategories={categories}
+            />
             </CardContent>
           </Card>
           <div className="w-full h-px bg-gray-200 my-4" />
