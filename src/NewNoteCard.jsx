@@ -45,7 +45,7 @@ const NewNoteCard = ({ card, onClick, onDelete, isExpanded }) => {
                   <Trash size={16} className="text-red-500" />
                 </button>
               </div>
-              <p className="text-gray-600">{card.description}</p>
+              <p className="text-gray-200">{card.description}</p>
               <p className="text-xs text-gray-400 mt-2">
                 Created: {new Date(card.id).toLocaleDateString()}
               </p>
